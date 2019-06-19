@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Map from './component/Map'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const INITIAL_STATE = {
+  position: [53.48, -2.24]
+}
+class App extends Component {
+  state = {
+    ...INITIAL_STATE
+  }
+  render() {
+    const { position } = this.state
+    return (
+      <div className="App">
+        <h1>Crime detector</h1>
+        <Map position={position} />
+      </div>
+    );
+  }
 }
 
 export default App;
